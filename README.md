@@ -30,7 +30,11 @@ denisthamrim$ git remote -v
 origin	https://github.com/zelfrontial/WeatherPredictor.git (fetch)
 origin	https://github.com/zelfrontial/WeatherPredictor.git (push)
 ``` 
+
+pulling the content of this repo
+``` 
 git pull URL
+``` 
 
 always, check for git status
 
