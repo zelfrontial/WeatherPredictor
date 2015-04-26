@@ -1,5 +1,5 @@
 # WeatherPredictor
-https://travis-ci.org/zelfrontial/WeatherPredictor.svg?branch=master
+[![Build Status](https://travis-ci.org/zelfrontial/WeatherPredictor.svg?branch=master)](https://travis-ci.org/zelfrontial/WeatherPredictor)
 Predict Weathers in Melbourne
 
 #Read This
