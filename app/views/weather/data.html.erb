@@ -1,0 +1,33 @@
+<h1>Latest Weather Readings</h1>
+	<table>
+	<tr>
+	<th> Station Id </th>
+	<th> Lat </th>
+	<th> Long </th>
+	<th> Rainfall since 9 am </th>
+	<th> Temperature in Celcius </th>
+	<th> Dew point in Celcius</th>
+	<th> Wind Direction</th>
+	<th> Wind Speed in Kmh </th>
+	<th> Date </th>
+	<th> Time </th>
+	<th> Source </th>
+	</tr>
+<% @weather_readings.each do |x| %>
+
+	<tr>
+	<th> <%= x.station_id%> </th>
+	<th> <%= x.lat%> </th>
+	<th> <%= x.long%> </th>
+	<th> <%= number_with_precision(x.rainfall,precision: 2)%> </th>
+	<th> <%= number_with_precision(x.temperature,precision: 2)%> </th>
+	<th> <%= number_with_precision(x.dew_point,precision: 2)%> </th>
+	<th> <%= x.wind_direction%> </th>
+	<th> <%= number_with_precision(x.wind_speed,precision: 2)%> </th>
+	<th> <%= x.date%> </th>
+	<th> <%= x.time%> </th>
+	<th> <%= x.source%> </th>
+	</tr>
+<% end %>
+</table>
+<br>
