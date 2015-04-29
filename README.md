@@ -33,7 +33,7 @@ origin	https://github.com/zelfrontial/WeatherPredictor.git (push)
 
 pulling the content of this repo
 ``` 
-git pull URL
+git pull origin master
 ``` 
 
 always, check for git status
