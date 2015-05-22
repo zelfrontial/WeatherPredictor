@@ -1,33 +1,65 @@
-<h1>Latest Weather Readings</h1>
-	<table>
-	<tr>
-	<th> Station Id </th>
-	<th> Lat </th>
-	<th> Long </th>
-	<th> Rainfall since 9 am </th>
-	<th> Temperature in Celcius </th>
-	<th> Dew point in Celcius</th>
-	<th> Wind Direction</th>
-	<th> Wind Speed in Kmh </th>
-	<th> Date </th>
-	<th> Time </th>
-	<th> Source </th>
-	</tr>
-<% @weather_readings.each do |x| %>
+<p id="notice"><%= notice %></p>
 
-	<tr>
-	<th> <%= x.station_id%> </th>
-	<th> <%= x.lat%> </th>
-	<th> <%= x.long%> </th>
-	<th> <%= number_with_precision(x.rainfall,precision: 2)%> </th>
-	<th> <%= number_with_precision(x.temperature,precision: 2)%> </th>
-	<th> <%= number_with_precision(x.dew_point,precision: 2)%> </th>
-	<th> <%= x.wind_direction%> </th>
-	<th> <%= number_with_precision(x.wind_speed,precision: 2)%> </th>
-	<th> <%= x.date%> </th>
-	<th> <%= x.time%> </th>
-	<th> <%= x.source%> </th>
-	</tr>
-<% end %>
+<h1>Reading from Bureau of Meteorology Australia</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th>Date/time</th>
+      <th>Temperature (°C)</th>
+      <th>Rainfall since 9am(mm)</th>
+      <th>Dew Point (°C)</th>
+      <th>Wind Speed (km/h)</th>
+      <th>Wind Direction</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tablebom.each do |sr| %>
+      <tr>
+        <td><%= sr.station.name %></td>
+        <td><%= sr.time.in_time_zone("Melbourne") %></td>
+        <td><%= sr.temperature %></td>
+        <td><%= sr.rainfall %></td>
+        <td><%= sr.dewPoint %></td>
+        <td><%= sr.windSpeed %></td>
+        <td><%= sr.windDirection %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+
+<h1>Reading from forecast.io</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th>Date/time</th>
+      <th>Temperature (°C)</th>
+      <th>Rainfall since 9am (mm)</th>
+      <th>Dew Point (°C)</th>
+      <th>Wind Speed (km/h)</th>
+      <th>Wind Direction</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tablefio.each do |sr| %>
+      <tr>
+        <td><%= sr.station.name %></td>
+        <td><%= sr.time.in_time_zone("Melbourne") %></td>
+        <td><%= sr.temperature %></td>
+        <td><%= sr.rainfall %></td>
+        <td><%= sr.dewPoint %></td>
+        <td><%= sr.windSpeed %></td>
+        <td><%= sr.windDirection %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <br>

@@ -5,25 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# rails g model Station station_id:string lat:float long:float post_code:3000integer
-Station.create(station_id:"melbourne-olympic-park",lat:-37.8,long:144.98,post_code:3000)
-Station.create(station_id:"melbourne-airport",lat:-36.7,long:144.83,post_code:3000 )
-Station.create(station_id:"avalon",lat:-38.03,long:144.48,post_code:3000 )
-Station.create(station_id:"cerberus",lat:-38.36,long:145.18,post_code:3000 )
-Station.create(station_id:"coldstream",lat:-37.72,long:145.41,post_code:3000 )
-Station.create(station_id:"cranbourne",lat:-38.13,long:145.26,post_code:3000 )
-Station.create(station_id:"essendon-airport",lat:-37.73,long:144.91,post_code:3000 )
-Station.create(station_id:"fawkner-beacon",lat:-37.91,long:144.93,post_code:3000 )
-Station.create(station_id:"ferny-creek",lat:-37.87,long:145.35,post_code:3000 )
-Station.create(station_id:"frankston",lat:-38.15,long:145.12,post_code:3000 )
-Station.create(station_id:"geelong-racecourse",lat:-38.17,long:144.38,post_code:3000 )
-Station.create(station_id:"laverton",lat:-37.86,long:144.76,post_code:3000 )
-Station.create(station_id:"moorabbin-airport",lat:-37.98,long:145.10,post_code:3000 )
-Station.create(station_id:"phillip-island",lat:-37.51,long:145.15,post_code:3000 )
-Station.create(station_id:"point-wilson",lat:-38.10,long:144.54,post_code:3000 )
-Station.create(station_id:"rhyll",lat:-38.46,long:145.31,post_code:3000 )
-Station.create(station_id:"scoresby",lat:-37.97,long:145.26,post_code:3000 )
-Station.create(station_id:"sheoaks",lat:-37.91,long:144.13,post_code:3000 )
-Station.create(station_id:"south-channel-island",lat:-38.31,long:144.80,post_code:3000 )
-Station.create(station_id:"st-kilda-harbour-rmys",lat:-37.86,long:144.96,post_code:3000 )
-Station.create(station_id:"viewbank",lat:-37.74,long:145.10,post_code:3000 )
+source_list = [
+	"Bureau of Meteorology Australia",
+	"forecast.io"
+]
+
+station_list = [
+	["Melbourne (Olympic Park)", -37.83, 144.98],
+	["Melbourne Airport", -37.67, 144.83],
+	["Avalon", -38.03, 144.48],
+	["Cerberus", -38.36, 145.18],
+	["Coldstream", -37.72, 145.41],
+	["Essendon Airport", -37.73, 144.91],
+	["Fawkner Beacon", -37.91, 144.93],
+	["Ferny Creek", -37.87, 145.35],
+	["Frankston", -38.15, 145.12],
+	["Geelong Racecourse", -38.17, 144.38],
+	["Laverton", -37.86, 144.76],
+	["Moorabbin Airport", -37.98, 145.10],
+	["Point Wilson", -38.10, 144.54],
+	["Rhyll", -38.46, 145.31],
+	["Scoresby", -37.87, 145.26],
+	["Sheoaks", -37.91, 144.13],
+	["South Channel Island", -38.31, 144.80],
+	["St Kilda Harbour RMYS", -37.86, 144.96],
+	["Viewbank", -37.74, 145.10]
+]
+
+source_list.each do |name|
+	Source.create(name: name)
+end
+
+station_list.each do |name, latitude, longitude|
+	Station.create(name: name, latitude: latitude, longitude: longitude)
+end

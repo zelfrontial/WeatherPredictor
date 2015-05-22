@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  station_id: MyString
-  lat: 1.5
-  long: 1.5
-  post_code: 1
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5
 
 two:
-  station_id: MyString
-  lat: 1.5
-  long: 1.5
-  post_code: 1
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5

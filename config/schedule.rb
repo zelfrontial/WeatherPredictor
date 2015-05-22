@@ -13,26 +13,26 @@ set :output, "#{path}/log/cron_log.log"
 job_type :script_runner, "cd :path; rails runner :task :output"
 job_type :code_runner, "cd :path; rails runner ':task' :output"
 
-## Mat's Examples
-every 30.minute do 
-	script_runner "lib/scraper/forecastIoJson.rb"
-	
-end
-
 every 10.minute do 
-	script_runner "lib/scraper/bomScraper.rb"
+ 	script_runner "lib/scraperbom.rb"
 end
 
-# every 4.days do
-#   code_runner "AnotherModel.prune_old_records"
-# end
+every 30.minute do 
+ 	script_runner "lib/scraperjson.rb"
+end
 
-# Examples From Whenever:
+# Example:
+#
+# set :output, "/path/to/my/cron_log.log"
+#
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
+#   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
 # end
 #
-
+# every 4.days do
+#   runner "AnotherModel.prune_old_records"
+# end
 
 # Learn more: http://github.com/javan/whenever

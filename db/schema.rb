@@ -11,31 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423010431) do
+ActiveRecord::Schema.define(version: 20150423160503) do
 
-  create_table "stations", force: :cascade do |t|
-    t.string   "station_id"
-    t.float    "lat"
-    t.float    "long"
-    t.integer  "post_code"
+  create_table "readings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "source_id"
+  end
+
+  add_index "readings", ["source_id"], name: "index_readings_on_source_id"
+
+  create_table "single_readings", force: :cascade do |t|
+    t.datetime "time"
+    t.float    "temperature"
+    t.float    "rainfall"
+    t.float    "dewPoint"
+    t.float    "windSpeed"
+    t.string   "windDirection"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "station_id"
+    t.integer  "reading_id"
+  end
+
+  add_index "single_readings", ["reading_id"], name: "index_single_readings_on_reading_id"
+  add_index "single_readings", ["station_id"], name: "index_single_readings_on_station_id"
+
+  create_table "sources", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "weather_readings", force: :cascade do |t|
-    t.string   "station_id"
-    t.float    "lat"
-    t.float    "long"
-    t.float    "rainfall"
-    t.float    "temperature"
-    t.float    "dew_point"
-    t.string   "wind_direction"
-    t.float    "wind_speed"
-    t.string   "date"
-    t.string   "time"
-    t.string   "source"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "stations", force: :cascade do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

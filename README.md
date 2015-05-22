@@ -13,6 +13,22 @@ http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 
 
 #Git setup tutorial.
+
+'''
+
+bundle install
+rake db:create
+rake db:migrate
+rake db:seed
+rails r lib/scraperbom.rb
+rails r lib/scraperjson.rb
+
+OPTIONAL here whenever --update-crontab
+
+rails s
+'''
+
+
 ``` 
 URL = https://github.com/zelfrontial/WeatherPredictor.git
 ``` 
