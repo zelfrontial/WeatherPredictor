@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
   resources :single_readings
-  get 'weather/data'
+
+  get 'weather/locations', to: location, as: location
+
+
+  namespace :data do
+    get 'weather/data/:location_id/:date', to: data, as: location_data_by_date
+    get 'weather/data/:post_code/:date', to: data, as: post_code_data_by_date
+  end 
+
+  
+  namespace :predicition do
+    get 'weather/prediction/:post_code/:period', to: prediction, as: post_code_prediction 
+    get 'weather/prediction/:lat/:long/:period', to: prediction, as: lat_long_prediction
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
