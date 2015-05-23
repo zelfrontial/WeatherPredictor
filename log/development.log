@@ -3852,3 +3852,888 @@ Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8b
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-22 16:49:42 +1000
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-22 17:23:41 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.2ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+  [1m[35mReading Load (0.3ms)[0m  SELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1  [["source_id", 1]]
+  [1m[36mReading Load (0.1ms)[0m  [1mSELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["source_id", 2]]
+  [1m[35mSingleReading Load (0.8ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mSingleReading Load (0.2ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  Rendered weather/data.html.erb within layouts/application (255.3ms)
+Completed 200 OK in 3175ms (Views: 3001.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/scaffolds.self-71c0079a985dd56daaf27cb6d3364d866a24054dbdd64ead18b22662a88233fd.css?body=1" for 127.0.0.1 at 2015-05-22 17:23:45 +1000
+
+
+Started GET "/weather" for 127.0.0.1 at 2015-05-22 17:25:10 +1000
+
+ActionController::RoutingError (No route matches [GET] "/weather"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (34.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (140.1ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (62.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (125.8ms)
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-22 17:25:15 +1000
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.3ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+  [1m[35mReading Load (0.2ms)[0m  SELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1  [["source_id", 1]]
+  [1m[36mReading Load (0.1ms)[0m  [1mSELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["source_id", 2]]
+  [1m[35mSingleReading Load (0.3ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 1]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mSingleReading Load (0.3ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  Rendered weather/data.html.erb within layouts/application (110.8ms)
+Completed 200 OK in 219ms (Views: 196.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-22 17:31:36 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (5.0ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+  [1m[35mReading Load (0.2ms)[0m  SELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1  [["source_id", 1]]
+  [1m[36mReading Load (0.2ms)[0m  [1mSELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["source_id", 2]]
+  [1m[35mSingleReading Load (0.4ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mSingleReading Load (0.3ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  Rendered weather/data.html.erb within layouts/application (151.9ms)
+Completed 200 OK in 647ms (Views: 546.8ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-22 17:42:54 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.2ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+  [1m[35mReading Load (0.2ms)[0m  SELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1  [["source_id", 1]]
+  [1m[36mReading Load (0.1ms)[0m  [1mSELECT  "readings".* FROM "readings" WHERE "readings"."source_id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["source_id", 2]]
+  [1m[35mSingleReading Load (0.5ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (5.3ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mSingleReading Load (0.2ms)[0m  SELECT "single_readings".* FROM "single_readings" INNER JOIN "stations" ON "stations"."id" = "single_readings"."station_id" WHERE "single_readings"."reading_id" = ?  [["reading_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 19]]
+  Rendered weather/data.html.erb within layouts/application (148.2ms)
+Completed 200 OK in 883ms (Views: 780.9ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/assets/w.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-22 17:42:55 +1000
+
+
+Started GET "/assets/w.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-22 17:42:55 +1000
+
+
+Started GET "/weather/location" for 127.0.0.1 at 2015-05-22 18:00:49 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.0ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (40.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (90.8ms)
+
+
+Started GET "/weather/location" for 127.0.0.1 at 2015-05-22 18:00:59 +1000
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.8ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (39.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (86.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGeolocations (20150522074629)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (30.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150522074629"]]
+  [1m[36m (5.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-23 19:36:41 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/zahid/.rvm/rubies/ruby-2.1.6/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (131.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (125.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (213.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+SQLite3::SQLException: table "stations" already exists: CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStations (20150522075121)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+SQLite3::SQLException: table "stations" already exists: CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (4.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReadings (20150423033409)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423033409"]]
+  [1m[35m (9.0ms)[0m  commit transaction
+Migrating to CreateSingleReadings (20150423103132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "single_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" datetime, "temperature" float, "rainfall" float, "dewPoint" float, "windSpeed" float, "windDirection" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423103132"]]
+  [1m[35m (4.6ms)[0m  commit transaction
+Migrating to CreateSources (20150423150622)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423150622"]]
+  [1m[35m (4.6ms)[0m  commit transaction
+Migrating to AddStationToSingleReading (20150423154748)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "single_readings" ADD "station_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_single_readings_on_station_id" ON "single_readings" ("station_id")[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423154748"]]
+  [1m[36m (7.5ms)[0m  [1mcommit transaction[0m
+Migrating to AddSourceToReading (20150423154939)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "readings" ADD "source_id" integer[0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_readings_on_source_id" ON "readings" ("source_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423154939"]]
+  [1m[35m (5.6ms)[0m  commit transaction
+Migrating to AddReadingToSingleReading (20150423160503)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "single_readings" ADD "reading_id" integer
+  [1m[36m (1.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_single_readings_on_reading_id" ON "single_readings" ("reading_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423160503"]]
+  [1m[35m (6.2ms)[0m  commit transaction
+Migrating to CreateGeolocations (20150522074629)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522074629"]]
+  [1m[35m (18.6ms)[0m  commit transaction
+Migrating to CreateStations (20150522075121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075121"]]
+  [1m[35m (8.7ms)[0m  commit transaction
+Migrating to CreatePostcodes (20150522075405)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (12.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReadings (20150423033409)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423033409"]]
+  [1m[35m (7.3ms)[0m  commit transaction
+Migrating to CreateSingleReadings (20150423103132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (13.8ms)[0m  CREATE TABLE "single_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" datetime, "temperature" float, "rainfall" float, "dewPoint" float, "windSpeed" float, "windDirection" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423103132"]]
+  [1m[35m (5.8ms)[0m  commit transaction
+Migrating to CreateSources (20150423150622)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423150622"]]
+  [1m[35m (16.9ms)[0m  commit transaction
+Migrating to AddStationToSingleReading (20150423154748)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "single_readings" ADD "station_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_single_readings_on_station_id" ON "single_readings" ("station_id")[0m
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423154748"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddSourceToReading (20150423154939)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "readings" ADD "source_id" integer[0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_readings_on_source_id" ON "readings" ("source_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423154939"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+Migrating to AddReadingToSingleReading (20150423160503)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "single_readings" ADD "reading_id" integer
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[35m (5.3ms)[0m  CREATE  INDEX "index_single_readings_on_reading_id" ON "single_readings" ("reading_id")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423160503"]]
+  [1m[35m (6.9ms)[0m  commit transaction
+Migrating to CreateGeolocations (20150522074629)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522074629"]]
+  [1m[35m (3.7ms)[0m  commit transaction
+Migrating to CreateStations (20150522075121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075121"]]
+  [1m[35m (3.9ms)[0m  commit transaction
+Migrating to CreatePostcodes (20150522075405)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (10.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReadings (20150423033409)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423033409"]]
+  [1m[35m (3.6ms)[0m  commit transaction
+Migrating to CreateSingleReadings (20150423103132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "single_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" datetime, "temperature" float, "rainfall" float, "dewPoint" float, "windSpeed" float, "windDirection" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423103132"]]
+  [1m[35m (17.4ms)[0m  commit transaction
+Migrating to CreateSources (20150423150622)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423150622"]]
+  [1m[35m (10.2ms)[0m  commit transaction
+Migrating to AddStationToSingleReading (20150423154748)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "single_readings" ADD "station_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_single_readings_on_station_id" ON "single_readings" ("station_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423154748"]]
+  [1m[36m (6.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddSourceToReading (20150423154939)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "readings" ADD "source_id" integer[0m
+  [1m[35m (3.3ms)[0m  CREATE  INDEX "index_readings_on_source_id" ON "readings" ("source_id")
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423154939"]]
+  [1m[35m (6.9ms)[0m  commit transaction
+Migrating to AddReadingToSingleReading (20150423160503)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "single_readings" ADD "reading_id" integer
+  [1m[36m (4.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX "index_single_readings_on_reading_id" ON "single_readings" ("reading_id")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423160503"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+Migrating to CreateGeolocations (20150522074629)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522074629"]]
+  [1m[35m (7.0ms)[0m  commit transaction
+Migrating to CreateStations (20150522075121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075121"]]
+  [1m[35m (3.9ms)[0m  commit transaction
+Migrating to CreatePostcodes (20150522075405)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "postcodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "postcode" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075405"]]
+  [1m[35m (5.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+
+  [1m[36m (4.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-23 20:06:42 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.3ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 1.0ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/weather_controller.rb:12:in `data'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (57.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (127.5ms)
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-23 20:07:44 +1000
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.5ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/weather_controller.rb:12:in `data'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (16.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (149.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (12.8ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (4.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (157.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-23 20:08:49 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.9ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 1.6ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/weather_controller.rb:12:in `data'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (79.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (61.6ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (121.2ms)
+
+
+Started GET "/weather/data" for 127.0.0.1 at 2015-05-23 20:11:21 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#data as HTML
+  [1m[35mSource Load (0.3ms)[0m  SELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1  [["name", "Bureau of Meteorology Australia"]]
+  [1m[36mSource Load (0.1ms)[0m  [1mSELECT  "sources".* FROM "sources" WHERE "sources"."name" = ?  ORDER BY "sources"."id" ASC LIMIT 1[0m  [["name", "forecast.io"]]
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 6.0ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/weather_controller.rb:12:in `data'
+
+
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.9ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (58.0ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (130.1ms)

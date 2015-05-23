@@ -1,3 +1,3 @@
 class Station < ActiveRecord::Base
-	has_many :single_readings
+	has_one :geolocation
 end
