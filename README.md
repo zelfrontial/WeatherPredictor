@@ -23,7 +23,9 @@ rake db:create
 rake db:migrate
 rake db:seed
 rails r lib/scraperbom.rb
-rails r lib/scraperjson.rb
+
+
+OPTIONAL rails r lib/scraperjson.rb
 
 OPTIONAL here whenever --update-crontab
 
