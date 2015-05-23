@@ -14,7 +14,9 @@ http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 
 #Git setup tutorial.
 
-'''
+
+First run tutorial
+```
 
 bundle install
 rake db:create
@@ -26,7 +28,7 @@ rails r lib/scraperjson.rb
 OPTIONAL here whenever --update-crontab
 
 rails s
-'''
+```
 
 
 ``` 
