@@ -1,10 +1,11 @@
 language: ruby
 script:
   - bundle install
+  - rake db:drop
   - rake db:create
   - rake db:migrate
   - rake db:seed
-  - rails r lib/scraperbom.rb
+  - sudo rails r lib/scraperbom.rb
 
 rvm:
   - 2.2.1
