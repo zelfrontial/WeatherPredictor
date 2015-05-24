@@ -29,7 +29,17 @@ windspeed_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-wind-spd-kph]'
 	if station = Station.where(:name => station_list[row].content).first
 		sr.station_id = station.id
 	end
-	sr.time = Time.strptime(time_list[row].content, "%e/%I:%M%P").in_time_zone("Melbourne")
+	time = Time.strptime(time_list[row].content, "%e/%I:%M%P").in_time_zone("Melbourne")
+	single_reading = SingleReading.where(:time => time,:station_id => station.id)
+	
+	# if there is duplicate then break
+	if single_reading
+		break
+	end
+
+
+
+	sr.time = time
 	sr.rainfall = ((rainfall_list[row].content.eql? '-') ? nil : rainfall_list[row].content.to_f)
 	sr.temperature = ((temp_list[row].content.eql? '-') ? nil : temp_list[row].content.to_f)
 	sr.dewPoint = ((dewpoint_list[row].content.eql? '-') ? nil : dewpoint_list[row].content.to_f)
