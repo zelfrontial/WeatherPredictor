@@ -5,7 +5,7 @@ script:
   - rake db:create
   - rake db:migrate
   - rake db:seed
-  - lib/scraperbom.rb
+  - ./lib/scraperbom.rb
 
 rvm:
   - 2.2.1
