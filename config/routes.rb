@@ -2,6 +2,37 @@ Rails.application.routes.draw do
   resources :single_readings
   get 'weather/data'
   
+
+2   resources :single_readings 
+3 
+ 
+4   get 'weather/locations', to: location, as: 'location'
+5 
+ 
+6 
+ 
+7   namespace :data do
+    resources :single_readings 
+  end
+8     get 'weather/data/:location_id/:date', to: 'data#show', as: 'location_data_by_date' 
+9     get 'weather/data/:post_code/:date', to: 'data#show', as: 'post_code_data_by_date' 
+10   end  
+11 
+ 
+12    
+13   namespace :predicition do 
+14     get 'weather/prediction/:post_code/:period', to: 'prediction#show', as: 'post_code_prediction'  
+15     get 'weather/prediction/:lat/:long/:period', to: 'prediction#show', as: 'lat_long_prediction' 
+16   end 
+
+
+
+
+http://guides.rubyonrails.org/routing.html
+http://stackoverflow.com/questions/20229331/
+
+
+
   # get 'weather/locations', to: location, as: location
 
 
