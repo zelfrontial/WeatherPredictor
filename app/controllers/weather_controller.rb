@@ -16,4 +16,22 @@ class WeatherController < ApplicationController
   	@tablebom = SingleReading.joins(:station).where(:reading_id => lastbom.id)
   	@tablefio = SingleReading.joins(:station).where(:reading_id => lastfio.id)
   end
+
+  def location
+	@all_station = Station.all
+
+  respond_to do |format|
+    format.html
+    format.js
+    format.json {render json: @weather_controller}
+	
+  end
+
+
+
+
+
+
+
+  
 end

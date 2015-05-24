@@ -1,9 +1,8 @@
 class CreateStations < ActiveRecord::Migration
   def change
     create_table :stations do |t|
+      t.string :stationID
       t.string :name
-      t.float :latitude
-      t.float :longitude
 
       t.timestamps null: false
     end

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Station ID</th>
+      <th>Name</th>
+      <th>Geolocation</th>
+      <th>Created_at</th>
+      <th>Modified_at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @all_station.each do |s| %>
+      <tr>
+        <td><%= s.stationID %></td>
+        <td><%= s.name %></td>
+        <td><%= s.geolocation %></td>
+        <td><%= s.created_at %></td>
+        <td><%= s.modified_at%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
