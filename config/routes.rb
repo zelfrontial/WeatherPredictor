@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :single_readings
-
+  get 'weather/data'
+  
   get 'weather/locations', to: location, as: location
 
 
