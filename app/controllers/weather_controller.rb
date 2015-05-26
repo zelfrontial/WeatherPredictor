@@ -27,6 +27,23 @@ class WeatherController < ApplicationController
 	
   end
 
+  def data_postcode
+
+  end
+
+  def data_loc_id
+
+  end
+
+
+  def prediction
+
+  end
+
+  
+
+
+
 
 
 
