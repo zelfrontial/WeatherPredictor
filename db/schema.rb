@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522075405) do
+ActiveRecord::Schema.define(version: 20150524061019) do
+
+  create_table "dew_points", force: :cascade do |t|
+    t.float    "dewPoint"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "geolocations", force: :cascade do |t|
     t.float    "latitude"
@@ -22,6 +28,31 @@ ActiveRecord::Schema.define(version: 20150522075405) do
 
   create_table "postcodes", force: :cascade do |t|
     t.integer  "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rainfall_predictions", force: :cascade do |t|
+    t.string   "regressionType"
+    t.integer  "degree"
+    t.float    "mse"
+    t.float    "x0"
+    t.float    "x1"
+    t.float    "x2"
+    t.float    "x3"
+    t.float    "x4"
+    t.float    "x5"
+    t.float    "x6"
+    t.float    "x7"
+    t.float    "x8"
+    t.float    "x9"
+    t.float    "x10"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "rainfalls", force: :cascade do |t|
+    t.float    "rainfall"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +92,57 @@ ActiveRecord::Schema.define(version: 20150522075405) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "temperature_predictions", force: :cascade do |t|
+    t.string   "regressionType"
+    t.integer  "degree"
+    t.float    "mse"
+    t.float    "x0"
+    t.float    "x1"
+    t.float    "x2"
+    t.float    "x3"
+    t.float    "x4"
+    t.float    "x5"
+    t.float    "x6"
+    t.float    "x7"
+    t.float    "x8"
+    t.float    "x9"
+    t.float    "x10"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "temperatures", force: :cascade do |t|
+    t.float    "temperature"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "wind_predictions", force: :cascade do |t|
+    t.string   "regressionType"
+    t.integer  "degree"
+    t.float    "mse"
+    t.float    "x0"
+    t.float    "x1"
+    t.float    "x2"
+    t.float    "x3"
+    t.float    "x4"
+    t.float    "x5"
+    t.float    "x6"
+    t.float    "x7"
+    t.float    "x8"
+    t.float    "x9"
+    t.float    "x10"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "winds", force: :cascade do |t|
+    t.string   "windDirection"
+    t.float    "windSpeed"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

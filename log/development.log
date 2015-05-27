@@ -4737,3 +4737,68 @@ NoMethodError (undefined method `id' for nil:NilClass):
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (130.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTemperatures (20150523065619)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "temperatures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065619"]]
+  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDewPoints (20150523065643)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "dew_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dewPoint" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065643"]]
+  [1m[36m (11.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRainfalls (20150523065703)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "rainfalls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rainfall" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065703"]]
+  [1m[36m (12.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWinds (20150523065721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "winds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "windDirection" varchar, "windSpeed" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065721"]]
+  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveRainfallfromSingleReading (20150523074329)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523074329"]]
+  [1m[35m (10.3ms)[0m  commit transaction
+Migrating to CreateWindPredictions (20150524060953)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "wind_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524060953"]]
+  [1m[35m (9.7ms)[0m  commit transaction
+Migrating to CreateTemperaturePredictions (20150524061008)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "temperature_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524061008"]]
+  [1m[35m (12.6ms)[0m  commit transaction
+Migrating to CreateRainfallPredictions (20150524061019)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "rainfall_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524061019"]]
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+
