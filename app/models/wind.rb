@@ -1,3 +1,3 @@
 class Wind < ActiveRecord::Base
-	belongs_to :SingleReading
+	belongs_to :single_reading
 end
