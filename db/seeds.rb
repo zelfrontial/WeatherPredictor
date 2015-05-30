@@ -773,6 +773,6 @@ station_list.each do |stationID, name, latitude, longitude|
 end
 
 post_code_list.each do |postcode, name, state, latitude, longitude|
-	
-	Postcode.create(postcode: postcode, latitude:latitude, longitude: longitude)
+	g = Geolocation.create(latitude: latitude, longitude: longitude)
+	Postcode.create(postcode: postcode, geolocation_id: g.id)
 end
