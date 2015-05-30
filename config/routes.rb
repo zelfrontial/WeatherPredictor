@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
   resources :single_readings
-  get 'weather/data/:postcode/:date', to: "weather#data_postcode", constraints: { postcode: /3\d{3}/ }, as: data_postcode
-  get 'weather/data/:id/:date', to: "weather#data_loc_id", constraints: { postcode: /\D+/ }, as: data_loc_id
-  get 'weather/locations', to: "weather#location", as: location
-  get 'weather/predicition/:postcode/:period', to: "weather#prediction", constraints: { postcode: /3\d{3}/ }, as: prediction_postcode
-  get 'weather/predicition/:lat/:long/:period', to: "weather#prediction", as: prediction_loc
+  get 'weather/data'
+
+
+
+  #Buggy haven't testeed
+  # get 'weather/data/:postcode/:date', to: "weather#data_postcode", constraints: { postcode: /3\d{3}/ }, as: data_postcode
+  # get 'weather/data/:id/:date', to: "weather#data_loc_id", constraints: { postcode: /\D+/ }, as: data_loc_id
+  # get 'weather/locations', to: "weather#location", as: location
+  # get 'weather/predicition/:postcode/:period', to: "weather#prediction", constraints: { postcode: /3\d{3}/ }, as: prediction_postcode
+  # get 'weather/predicition/:lat/:long/:period', to: "weather#prediction", as: prediction_loc
+  
+
+
+
+
+
   #get 'photos/:id', to: 'photos#show', constraints: { id: /[A-Z]\d{5}/ }
   # namespace :data do
   #   get 'weather/data/:location_id/:date', to: data, as: location_data_by_date
