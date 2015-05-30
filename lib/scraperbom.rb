@@ -32,11 +32,11 @@ windspeed_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-wind-spd-kph]'
 	time = Time.strptime(time_list[row].content, "%e/%I:%M%P").in_time_zone("Melbourne")
 
 
-	single_reading = SingleReading.where(:time => time,:station_id => station.id)
-	# if there is duplicate then break
-	if single_reading
-		break
-	end
+	# single_reading = SingleReading.where(:time => time,:station_id => station.id)
+	# # if there is duplicate then break
+	# if single_reading
+	# 	break
+	# end
 
 
 
