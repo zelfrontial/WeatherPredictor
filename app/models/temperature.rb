@@ -1,4 +1,3 @@
 class Temperature < ActiveRecord::Base
-	belongs_to :SingleReading
-	belongs_to :TemperaturePrediction
+	belongs_to :single_reading
 end

@@ -4737,47 +4737,224 @@ NoMethodError (undefined method `id' for nil:NilClass):
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
   Rendered /home/zahid/.rvm/gems/ruby-2.1.6/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (130.1ms)
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (25.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (10.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReadings (20150423033409)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423033409"]]
+  [1m[35m (17.1ms)[0m  commit transaction
+Migrating to CreateSingleReadings (20150423103132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "single_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" datetime, "temperature" float, "rainfall" float, "dewPoint" float, "windSpeed" float, "windDirection" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423103132"]]
+  [1m[35m (6.2ms)[0m  commit transaction
+Migrating to CreateSources (20150423150622)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423150622"]]
+  [1m[35m (11.5ms)[0m  commit transaction
+Migrating to AddStationToSingleReading (20150423154748)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "single_readings" ADD "station_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_single_readings_on_station_id" ON "single_readings" ("station_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423154748"]]
+  [1m[36m (56.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddSourceToReading (20150423154939)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "readings" ADD "source_id" integer[0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_readings_on_source_id" ON "readings" ("source_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423154939"]]
+  [1m[35m (8.3ms)[0m  commit transaction
+Migrating to AddReadingToSingleReading (20150423160503)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "single_readings" ADD "reading_id" integer
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX "index_single_readings_on_reading_id" ON "single_readings" ("reading_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423160503"]]
+  [1m[35m (22.4ms)[0m  commit transaction
+Migrating to CreateGeolocations (20150522074629)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522074629"]]
+  [1m[35m (14.7ms)[0m  commit transaction
+Migrating to CreateStations (20150522075121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075121"]]
+  [1m[35m (33.8ms)[0m  commit transaction
+Migrating to CreatePostcodes (20150522075405)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "postcodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "postcode" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075405"]]
+  [1m[35m (13.0ms)[0m  commit transaction
 Migrating to CreateTemperatures (20150523065619)
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "temperatures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065619"]]
-  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "temperatures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065619"]]
+  [1m[35m (9.2ms)[0m  commit transaction
 Migrating to CreateDewPoints (20150523065643)
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "dew_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dewPoint" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065643"]]
-  [1m[36m (11.2ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "dew_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dewPoint" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065643"]]
+  [1m[35m (8.9ms)[0m  commit transaction
 Migrating to CreateRainfalls (20150523065703)
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "rainfalls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rainfall" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065703"]]
-  [1m[36m (12.5ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "rainfalls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rainfall" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065703"]]
+  [1m[35m (10.6ms)[0m  commit transaction
 Migrating to CreateWinds (20150523065721)
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "winds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "windDirection" varchar, "windSpeed" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523065721"]]
-  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (9.5ms)[0m  CREATE TABLE "winds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "windDirection" varchar, "windSpeed" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065721"]]
+  [1m[35m (16.1ms)[0m  commit transaction
 Migrating to RemoveRainfallfromSingleReading (20150523074329)
-  [1m[35m (0.1ms)[0m  begin transaction
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523074329"]]
-  [1m[35m (10.3ms)[0m  commit transaction
-Migrating to CreateWindPredictions (20150524060953)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  CREATE TABLE "wind_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524060953"]]
-  [1m[35m (9.7ms)[0m  commit transaction
-Migrating to CreateTemperaturePredictions (20150524061008)
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  CREATE TABLE "temperature_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524061008"]]
-  [1m[35m (12.6ms)[0m  commit transaction
-Migrating to CreateRainfallPredictions (20150524061019)
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "rainfall_predictions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "regressionType" varchar, "degree" integer, "mse" float, "x0" float, "x1" float, "x2" float, "x3" float, "x4" float, "x5" float, "x6" float, "x7" float, "x8" float, "x9" float, "x10" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524061019"]]
-  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523074329"]]
+  [1m[36m (7.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_readings_on_source_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_reading_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (15.9ms)[0m  [1mINSERT INTO "geolocations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", -37.83], ["longitude", 144.98], ["created_at", "2015-05-24 09:39:02.074799"], ["updated_at", "2015-05-24 09:39:02.074799"]]
+  [1m[35m (29.4ms)[0m  commit transaction
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (27.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReadings (20150423033409)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423033409"]]
+  [1m[35m (16.4ms)[0m  commit transaction
+Migrating to CreateSingleReadings (20150423103132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "single_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" datetime, "temperature" float, "rainfall" float, "dewPoint" float, "windSpeed" float, "windDirection" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423103132"]]
+  [1m[35m (11.6ms)[0m  commit transaction
+Migrating to CreateSources (20150423150622)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423150622"]]
+  [1m[35m (10.2ms)[0m  commit transaction
+Migrating to AddStationToSingleReading (20150423154748)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "single_readings" ADD "station_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_single_readings_on_station_id" ON "single_readings" ("station_id")[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150423154748"]]
+  [1m[36m (49.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddSourceToReading (20150423154939)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "readings" ADD "source_id" integer[0m
+  [1m[35m (4.9ms)[0m  CREATE  INDEX "index_readings_on_source_id" ON "readings" ("source_id")
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423154939"]]
+  [1m[35m (11.2ms)[0m  commit transaction
+Migrating to AddReadingToSingleReading (20150423160503)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "single_readings" ADD "reading_id" integer
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_single_readings_on_station_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX "index_single_readings_on_reading_id" ON "single_readings" ("reading_id")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150423160503"]]
+  [1m[35m (22.9ms)[0m  commit transaction
+Migrating to CreateGeolocations (20150522074629)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "geolocations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522074629"]]
+  [1m[35m (31.1ms)[0m  commit transaction
+Migrating to CreateStations (20150522075121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stationID" varchar, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075121"]]
+  [1m[35m (61.3ms)[0m  commit transaction
+Migrating to CreatePostcodes (20150522075405)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "postcodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "postcode" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150522075405"]]
+  [1m[35m (9.8ms)[0m  commit transaction
+Migrating to CreateTemperatures (20150523065619)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "temperatures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065619"]]
+  [1m[35m (8.4ms)[0m  commit transaction
+Migrating to CreateDewPoints (20150523065643)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "dew_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dewPoint" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065643"]]
+  [1m[35m (9.4ms)[0m  commit transaction
+Migrating to CreateRainfalls (20150523065703)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "rainfalls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rainfall" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065703"]]
+  [1m[35m (8.4ms)[0m  commit transaction
+Migrating to CreateWinds (20150523065721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "winds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "windDirection" varchar, "windSpeed" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150523065721"]]
+  [1m[35m (26.5ms)[0m  commit transaction
+Migrating to RemoveRainfallfromSingleReading (20150523074329)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150523074329"]]
+  [1m[36m (22.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddGeolocationToStation (20150524094353)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (5.7ms)[0m  [1mALTER TABLE "stations" ADD "geolocation_id" integer[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX "index_stations_on_geolocation_id" ON "stations" ("geolocation_id")
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150524094353"]]
+  [1m[35m (17.9ms)[0m  commit transaction
+Migrating to AddGeolocationToPostcode (20150524094455)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "postcodes" ADD "geolocation_id" integer
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_postcodes_on_geolocation_id" ON "postcodes" ("geolocation_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150524094455"]]
+  [1m[36m (7.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_postcodes_on_geolocation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_postcodes_on_geolocation_id' AND type='index'
+[0m
   [1m[35m (0.2ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_readings_on_source_id' AND type='index'
@@ -4794,7 +4971,7 @@ Migrating to CreateRainfallPredictions (20150524061019)
             FROM sqlite_temp_master
             WHERE name='index_single_readings_on_reading_id' AND type='index'
 [0m
-  [1m[35m (0.2ms)[0m              SELECT sql
+  [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
             WHERE name='index_single_readings_on_station_id' AND type='index'
             UNION ALL
@@ -4802,3 +4979,26 @@ Migrating to CreateRainfallPredictions (20150524061019)
             FROM sqlite_temp_master
             WHERE name='index_single_readings_on_station_id' AND type='index'
 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_stations_on_geolocation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_stations_on_geolocation_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "geolocations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", -37.83], ["longitude", 144.98], ["created_at", "2015-05-24 09:46:05.931342"], ["updated_at", "2015-05-24 09:46:05.931342"]]
+  [1m[35m (71.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "stations" ("stationID", "name", "geolocation_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["stationID", "OLYM_PARK"], ["name", "Melbourne (Olympic Park)"], ["geolocation_id", 1], ["created_at", "2015-05-24 09:46:06.041090"], ["updated_at", "2015-05-24 09:46:06.041090"]]
+  [1m[36m (27.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "geolocations" ("latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["latitude", -37.67], ["longitude", 144.83], ["created_at", "2015-05-24 09:46:06.075121"], ["updated_at", "2015-05-24 09:46:06.075121"]]
+  [1m[35m (9.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("stationID", "name", "geolocation_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["stationID", "TULLAMARINE"], ["name", "Melbourne Airport"], ["geolocation_id", 2], ["created_at", "2015-05-24 09:46:06.087073"], ["updated_at", "2015-05-24 09:46:06.087073"]]
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+  [1m[36mStation Load (2.4ms)[0m  [1mSELECT "stations".* FROM "stations"[0m
+  [1m[35mGeolocation Load (0.2ms)[0m  SELECT "geolocations".* FROM "geolocations"

@@ -1,4 +1,3 @@
 class Rainfall < ActiveRecord::Base
-	belongs_to :SingleReading
-	belongs_to :RainfallPrediction
+	belongs_to :single_reading
 end
