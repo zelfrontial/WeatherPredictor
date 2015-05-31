@@ -1,5 +1,5 @@
 class Geolocation < ActiveRecord::Base
-	belongs_to :station
-	belongs_to :postcode
+	has_one :station
+	has_one :postcode
 
 end

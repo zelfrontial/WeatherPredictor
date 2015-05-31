@@ -13,12 +13,12 @@
   </thead>
 
   <tbody>
-    <% @all_station.each do |s| %>
+    <% @stations.each do |s| %>
       <tr>
         <td><%= s.stationID %></td>
         <td><%= s.geolocation.latitude %></td>
         <td><%= s.geolocation.longitude %></td>
-        <td><%= s.modified_at %></td>
+        <td><%= s.updated_at %></td>
       </tr>
     <% end %>
   </tbody>
