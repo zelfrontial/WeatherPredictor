@@ -1,3 +1,3 @@
 class Postcode < ActiveRecord::Base
-	has_one :geolocation
+	belongs_to :geolocation
 end

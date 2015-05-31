@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524094455) do
+ActiveRecord::Schema.define(version: 20150530141529) do
 
   create_table "dew_points", force: :cascade do |t|
     t.float    "dewPoint"
@@ -51,19 +51,22 @@ ActiveRecord::Schema.define(version: 20150524094455) do
 
   create_table "single_readings", force: :cascade do |t|
     t.datetime "time"
-    t.float    "temperature"
-    t.float    "rainfall"
-    t.float    "dewPoint"
-    t.float    "windSpeed"
-    t.string   "windDirection"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "station_id"
     t.integer  "reading_id"
+    t.integer  "rainfall_id"
+    t.integer  "dew_point_id"
+    t.integer  "temperature_id"
+    t.integer  "wind_id"
   end
 
+  add_index "single_readings", ["dew_point_id"], name: "index_single_readings_on_dew_point_id"
+  add_index "single_readings", ["rainfall_id"], name: "index_single_readings_on_rainfall_id"
   add_index "single_readings", ["reading_id"], name: "index_single_readings_on_reading_id"
   add_index "single_readings", ["station_id"], name: "index_single_readings_on_station_id"
+  add_index "single_readings", ["temperature_id"], name: "index_single_readings_on_temperature_id"
+  add_index "single_readings", ["wind_id"], name: "index_single_readings_on_wind_id"
 
   create_table "sources", force: :cascade do |t|
     t.string   "name"
