@@ -1,12 +1,16 @@
 class WindPrediction
-	def calculatePrediction timeArray, speedArray, directionArray
+	def calculatePrediction timeArray, speedArray, directionArray, timeNow
 		require_relative 'regression.rb'
 
 		# convert from wind direction to wind bearing
-		windDirStr = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "SW", "WNW", "NW", "NNW" ]
+		windDirStr = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" ]
 		bearingArray = Array.new
 		directionArray.each do |e|
-			bearingArray.push(windDirStr.index(e) * 360 / 16)
+			if e == "CALM"
+				bearingArray.push(0)
+			else
+				bearingArray.push(windDirStr.index(e) * 360 / 16)
+			end
 		end
 
 		# calculate using 4 regressions
@@ -57,21 +61,21 @@ class WindPrediction
 		if bestfit_speed == linear_speed || bestfit_speed == polynomial_speed
         	(0..18).each do |x|
             	y = 0.0
-            	(0..bestfit_speed.degree).each { |i| y += bestfit_speed.coefficients[i] * ((timeArray.last + (x*10))**i) }
+            	(0..bestfit_speed.degree).each { |i| y += bestfit_speed.coefficients[i] * ((timeNow + (x*10))**i) }
             	windspeed_prediction.push(y)
         	end
-        end
+
 
         elsif bestfit_speed == logarithmic_speed
 			(0..18).each do |x|
-				y = bestfit_speed.coefficients[0] + (bestfit_speed.coefficients[1] * Math.log((timeArray.last + (x*10))))
+				y = bestfit_speed.coefficients[0] + (bestfit_speed.coefficients[1] * Math.log((timeNow + (x*10))))
 				windspeed_prediction.push(y)
 			end
-        end
+
 
         elsif bestfit_speed == exponential_speed
 			(0..18).each do |x|
-				y = bestfit_speed.coefficients[0] * (Math::E**(bestfit_speed.coefficients[1] * (timeArray.last + (x*10))))
+				y = bestfit_speed.coefficients[0] * (Math::E**(bestfit_speed.coefficients[1] * (timeNow + (x*10))))
 				windspeed_prediction.push(y)
 			end
         end
@@ -80,21 +84,21 @@ class WindPrediction
         if bestfit_direction == linear_direction || bestfit_direction == polynomial_direction
         	(0..18).each do |x|
             	y = 0.0
-            	(0..bestfit_direction.degree).each { |i| y += bestfit_direction.coefficients[i] * ((timeArray.last + (x*10))**i) }
+            	(0..bestfit_direction.degree).each { |i| y += bestfit_direction.coefficients[i] * ((timeNow + (x*10))**i) }
             	windbearing_prediction.push(y)
         	end
-        end
+
 
         elsif bestfit_direction == logarithmic_direction
 			(0..18).each do |x|
-				y = bestfit_direction.coefficients[0] + (bestfit_direction.coefficients[1] * Math.log((timeArray.last + (x*10))))
+				y = bestfit_direction.coefficients[0] + (bestfit_direction.coefficients[1] * Math.log((timeNow + (x*10))))
 				windbearing_prediction.push(y)
 			end
-        end
+
 
         elsif bestfit_direction == exponential_direction
 			(0..18).each do |x|
-				y = bestfit_direction.coefficients[0] * (Math::E**(bestfit_direction.coefficients[1] * (timeArray.last + (x*10))))
+				y = bestfit_direction.coefficients[0] * (Math::E**(bestfit_direction.coefficients[1] * (timeNow + (x*10))))
 				windbearing_prediction.push(y)
 			end
         end
@@ -113,6 +117,6 @@ class WindPrediction
         	wind_prediction.push(w)
         end
 
-        [wind_prediction, bestfit.mse]
+        [wind_prediction, 1 - (bestfit_speed.mse / 2000), 1 - (bestfit_direction.mse / 2000)]
 	end
 end

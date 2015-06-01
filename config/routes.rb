@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'weather/data'
   #get 'weather/data/:location_id/:date' => 'reading#getLocationReading'
   # get 'weather/data/:postcode/:date' => 'reading#getPostcodeReading'
-  get 'weather/prediction/:post_code/:period' => 'prediction#getPostcodePrediction'
+  get 'weather/prediction/:postcode/:period' => 'prediction#getPostcodePrediction'
   get 'weather/prediction/:lat/:long/:period' => 'prediction#getGeolocationPrediction'
 
 

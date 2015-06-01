@@ -35,7 +35,6 @@ end
 # Polynomial regression with a maximum degree of 10
 class PolynomialRegression < Regression
     attr_reader :degree
-
     def initialize x_array, y_array
         super(x_array, y_array)
         @degree = 0

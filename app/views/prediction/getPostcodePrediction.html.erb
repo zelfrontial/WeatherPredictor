@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prediction at Postcode <%= @postcode %></h1>
+
+
+<p>Predictions : </p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Temperature</th>
+      <th>Temperature Probability</th>
+      <th>Precipitation</th>
+      <th>Precipitation Probability</th>
+      <th>Wind Direction</th>
+      <th>Wind Direction Probability</th>
+      <th>Wind Speed</th>
+      <th>Wind Speed Probability</th> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% (0..(@period / 10)).each do |i| %>
+      <tr>
+        <td><%= @single_readings.first.created_at + (i * 10 + @time_now) * 60 %></td>
+        <td><%= @temperature_prediction[0][i].temperature %></td>
+        <td><%= @temperature_prediction[1] %></td>
+        <td><%= @rainfall_prediction[0][i].rainfall %></td>
+        <td><%= @rainfall_prediction[1] %></td>
+        <td><%= @wind_prediction[0][i].windDirection %></td>
+        <td><%= @wind_prediction[2] %></td>
+        <td><%= @wind_prediction[0][i].windSpeed %></td>
+        <td><%= @wind_prediction[1] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
