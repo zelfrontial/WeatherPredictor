@@ -1,3 +1,3 @@
 class DewPoint < ActiveRecord::Base
-	belongs_to :single_reading
+	has_one :single_reading
 end
