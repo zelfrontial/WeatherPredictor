@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Readings at <%= @station.name %></h1>
+
+<p>Date = <%= @date %></p>
+<p>Current Temperature = <%= @single_readings.last.temperature.temperature %></p>
+<p>Current Condition = <%= @condition %></p>
+
+<p>Measurements : </p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Temperature</th>
+      <th>Precipitation</th>
+      <th>Wind Direction</th>
+      <th>Wind Speed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @single_readings.each do |sr| %>
+      <tr>
+        <td><%= sr.created_at.in_time_zone("Melbourne") %></td>
+        <td><%= sr.temperature.temperature %></td>
+        <td><%= sr.rainfall.rainfall %></td>
+        <td><%= sr.wind.windDirection %></td>
+        <td><%= sr.wind.windSpeed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
