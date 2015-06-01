@@ -1,5 +1,5 @@
 class TemperaturePrediction
-	def calculatePrediction timeArray, valueArray
+	def calculatePrediction timeArray, valueArray, timeNow
 		require_relative 'regression.rb'
 
 		# calculate using 4 regressions
@@ -29,27 +29,25 @@ class TemperaturePrediction
         	(0..18).each do |x|
         		t = Temperature.new
             	y = 0.0
-            	(0..bestfit.degree).each { |i| y += bestfit.coefficients[i] * ((timeArray.last + (x*10))**i) }
+            	(0..bestfit.degree).each { |i| y += bestfit.coefficients[i] * ((timeNow + (x*10))**i) }
             	t.temperature = y
             	temperature_prediction.push(t)
         	end
-        end
 
         elsif bestfit == logarithmic
 			(0..18).each do |x|
 				t = Temperature.new
-				t.temperature = bestfit.coefficients[0] + (bestfit.coefficients[1] * Math.log((timeArray.last + (x*10))))
+				t.temperature = bestfit.coefficients[0] + (bestfit.coefficients[1] * Math.log((timeNow + (x*10))))
 				temperature_prediction.push(t)
 			end
-        end
 
         elsif bestfit == exponential
 			(0..18).each do |x|
 				t = Temperature.new
-				t.temperature = bestfit.coefficients[0] * (Math::E**(bestfit.coefficients[1] * (timeArray.last + (x*10))))
+				t.temperature = bestfit.coefficients[0] * (Math::E**(bestfit.coefficients[1] * (timeNow + (x*10))))
 				temperature_prediction.push(t)
 			end
         end
-        [temperature_prediction, bestfit.mse]
+        [temperature_prediction, 1 - (bestfit.mse/2000)]
 	end
 end

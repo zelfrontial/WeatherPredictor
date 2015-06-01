@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-windDirStr = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "SW", "WNW", "NW", "NNW" ]
+windDirStr = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" ]
 stations = Station.all
 
 # Record new reading session
