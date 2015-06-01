@@ -5,6 +5,8 @@ class WeatherController < ApplicationController
   	@readings = Reading.all
   	@single_readings = SingleReading.all
 
+
+    #source finding is nil , fix it!
   	bom = Source.where(:name => "Bureau of Meteorology Australia").first
   	fio = Source.where(:name => "forecast.io").first
 
@@ -18,37 +20,27 @@ class WeatherController < ApplicationController
   end
 
   def location
-	@all_station = Station.all
+  	@all_station = Station.all
 
-  respond_to do |format|
-    format.html
-    format.js
-    format.json {render json: @weather_controller}
-	
-  end
-
-  def data_postcode
-
-  end
-
-  def data_loc_id
-
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render json: @weather_controller}
+  	end
   end
 
 
-  def prediction
 
-  end
+  # def data_postcode
 
-  
+  # end
 
+  # def data_loc_id
 
+  # end
 
+  # def prediction
 
+  # end
 
-
-
-
-
-  
 end

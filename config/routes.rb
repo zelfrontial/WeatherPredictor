@@ -2,16 +2,16 @@ Rails.application.routes.draw do
   resources :single_readings
   get 'weather/location' => 'location#getAllStation'
   get 'weather/data'
-  get 'weather/data/:location_id/:date' => 'reading#getLocationReading'
-  get 'weather/data/:postcode/:date' => 'reading#getPostcodeReading'
+  #get 'weather/data/:location_id/:date' => 'reading#getLocationReading'
+  # get 'weather/data/:postcode/:date' => 'reading#getPostcodeReading'
   get 'weather/prediction/:postcode/:period' => 'prediction#getPostcodePrediction'
   get 'weather/prediction/:lat/:long/:period' => 'prediction#getGeolocationPrediction'
 
 
 
   #Buggy haven't testeed
-  # get 'weather/data/:postcode/:date', to: "weather#data_postcode", constraints: { postcode: /3\d{3}/ }, as: data_postcode
-  # get 'weather/data/:id/:date', to: "weather#data_loc_id", constraints: { postcode: /\D+/ }, as: data_loc_id
+  get 'weather/data/:postcode/:date', to: "reading#getPostcodeReading", constraints: { postcode: /3\d{3}/ }
+  get 'weather/data/:location_id/:date', to: "reading#getLocationReading", constraints: { location_id: /[a-zA-Z_]*/ }
   # get 'weather/locations', to: "weather#location", as: location
   # get 'weather/predicition/:postcode/:period', to: "weather#prediction", constraints: { postcode: /3\d{3}/ }, as: prediction_postcode
   # get 'weather/predicition/:lat/:long/:period', to: "weather#prediction", as: prediction_loc
