@@ -1,0 +1,21 @@
+{
+ "date":"<%=@date %>",
+ "current_temp":"<%= @single_readings.last.temperature.temperature %>",
+ "current_cond":"<%= @condition %>",
+ "measurements":[
+ 	<% i = 0 %>
+ 	<% @single_readings.each do |sr| %>
+ 	<% if i == 0 %>
+ 		<% i = 1 %>
+ 		<% next %>
+ 	<% end %> 	
+	 {
+	 "time":"<%= sr.created_at.in_time_zone("Melbourne") %>",
+	 "temp":"<%= sr.temperature.temperature %>",
+	 "precip":"<%= sr.rainfall.rainfall %>",
+	 "wind_direction":"<%= sr.wind.windDirection %>",
+	 "wind_speed":"<%= sr.wind.windSpeed %>"
+	 }<% if sr != @single_readings.last %>,<% end %>
+ 	<% end %>
+ 	]
+}

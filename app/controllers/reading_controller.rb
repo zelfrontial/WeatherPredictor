@@ -14,6 +14,11 @@ class ReadingController < ApplicationController
 				@condition = "Cloudy"
 			end
 		end
+
+	    respond_to do |format|
+	      format.html
+	      format.json
+	  	end		
 	end
 
 	def getLocationReading
@@ -31,5 +36,10 @@ class ReadingController < ApplicationController
 				@condition = "Cloudy"
 			end
 		end
+
+		respond_to do |format|
+	      format.html
+	      format.json
+	  	end		
 	end
 end
