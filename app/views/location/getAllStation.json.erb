@@ -1,15 +1,13 @@
 {
-"date":"<%= @currentTime%>",
-"locations":[
-<% @stations.each do |s| %>
+    "date":"<%= @currentTime%>",
+    "locations":[
+    <% @stations.each do |s| %>
     {
         "id":"<%= s.stationID %>",
         "lat":"<%= s.geolocation.latitude %>",
-        "lon"<%= s.geolocation.longitude %>",
-        "last_update":"<%= s.updated_at %>"
-    }
-    <% if s != @stations.last %> 
-    ,
-    <% end %>
+        "lon":"<%= s.geolocation.longitude %>",
+        "last_update":"<%= s.updated_at.in_time_zone("Melbourne") %>"
+    }<% if s != @stations.last %>,<% end %>
 <%end %>
 ]
+}

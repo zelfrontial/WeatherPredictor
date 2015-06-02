@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Readings at <%= @station.name %></h1>
+<h1>Readings at Postcode <%= @postcode %></h1>
 
 <p>Date = <%= @date %></p>
 <p>Current Temperature = <%= @single_readings.last.temperature.temperature %></p>
 <p>Current Condition = <%= @condition %></p>
-
+<p>Station = <%= @station.name %></p>
 <p>Measurements : </p>
 <table border="1">
   <thead>
