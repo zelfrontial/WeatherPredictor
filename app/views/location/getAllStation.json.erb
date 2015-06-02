@@ -1,15 +1,15 @@
 {
- "date":"<%= @currentTime%>",
- "locations":[
- <% @stations.each do |s| %>
- 	{
-	   "id":"<%= s.stationID %>",
-	   "lat":"<%= s.geolocation.latitude %>",
-	   "lon"<%= s.geolocation.longitude %>",
-	   "last_update":"<%= s.updated_at %>"
-	} 
-	<% if s != @stations.last %> 
-	 ,
-	<% end %>
+"date":"<%= @currentTime%>",
+"locations":[
+<% @stations.each do |s| %>
+    {
+        "id":"<%= s.stationID %>",
+        "lat":"<%= s.geolocation.latitude %>",
+        "lon"<%= s.geolocation.longitude %>",
+        "last_update":"<%= s.updated_at %>"
+    }
+    <% if s != @stations.last %> 
+    ,
+    <% end %>
 <%end %>
 ]

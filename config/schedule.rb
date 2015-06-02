@@ -13,12 +13,8 @@ set :output, "#{path}/log/cron_log.log"
 job_type :script_runner, "cd :path; rails runner :task :output"
 job_type :code_runner, "cd :path; rails runner ':task' :output"
 
-every 10.minute do 
- 	script_runner "lib/scraperbom.rb"
-end
-
 every 30.minute do 
- 	script_runner "lib/scraperjson.rb"
+ 	script_runner "lib/scraperbom.rb"
 end
 
 # Example:

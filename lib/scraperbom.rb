@@ -1,5 +1,5 @@
 # Define the URL we are opening
-URL = 'http://www.bom.gov.au/vic/observations/melbourne.shtml'
+URL = 'http://www.bom.gov.au/vic/observations/vicall.shtml'
 require 'nokogiri'
 require 'open-uri'
 
@@ -15,12 +15,12 @@ r.save
 
 # Parse the table
 station_list =  doc.css('tbody tr.rowleftcolumn th')
-time_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-datetime]')
-rainfall_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-rainsince9am]')
-temp_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-temp]')
-dewpoint_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-dewpoint]')
-winddirection_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-wind-dir]')
-windspeed_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-wind-spd-kph]')
+time_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-datetime]')
+rainfall_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-rainsince9am]')
+temp_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-tmp]')
+dewpoint_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-dewpoint]')
+winddirection_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-wind-dir]')
+windspeed_list =  doc.css('tbody tr.rowleftcolumn td[headers*=-wind-spd-kmh]')
 
 # Store it
 (0..station_list.length-1).each do |row|
@@ -31,18 +31,7 @@ windspeed_list =  doc.css('tbody tr.rowleftcolumn td[headers*=obs-wind-spd-kph]'
 	end
 	time = Time.strptime(time_list[row].content, "%e/%I:%M%P").in_time_zone("Melbourne")
 
-
-	# single_reading = SingleReading.where(:time => time,:station_id => station.id)
-	# # if there is duplicate then break
-	# if single_reading
-	# 	break
-	# end
-
-
-
 	sr.time = time
-
-
 
 	rain = ((rainfall_list[row].content.eql? '-') ? nil : rainfall_list[row].content.to_f)
 	rainfall = Rainfall.new(rainfall: rain)	

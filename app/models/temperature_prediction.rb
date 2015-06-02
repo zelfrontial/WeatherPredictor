@@ -26,28 +26,28 @@ class TemperaturePrediction
 
 		temperature_prediction = Array.new
 		if bestfit == linear || bestfit == polynomial
-        	(0..18).each do |x|
-        		t = Temperature.new
-            	y = 0.0
-            	(0..bestfit.degree).each { |i| y += bestfit.coefficients[i] * ((timeNow + (x*10))**i) }
-            	t.temperature = y
-            	temperature_prediction.push(t)
-        	end
+			(0..18).each do |x|
+				t = Temperature.new
+				y = 0.0
+				(0..bestfit.degree).each { |i| y += bestfit.coefficients[i] * ((timeNow + (x*10))**i) }
+				t.temperature = y
+				temperature_prediction.push(t)
+			end
 
-        elsif bestfit == logarithmic
+		elsif bestfit == logarithmic
 			(0..18).each do |x|
 				t = Temperature.new
 				t.temperature = bestfit.coefficients[0] + (bestfit.coefficients[1] * Math.log((timeNow + (x*10))))
 				temperature_prediction.push(t)
 			end
 
-        elsif bestfit == exponential
+		elsif bestfit == exponential
 			(0..18).each do |x|
 				t = Temperature.new
 				t.temperature = bestfit.coefficients[0] * (Math::E**(bestfit.coefficients[1] * (timeNow + (x*10))))
 				temperature_prediction.push(t)
 			end
-        end
-        [temperature_prediction, 1 - (bestfit.mse/2000)]
+		end
+		[temperature_prediction, 1 - (bestfit.mse/2000)]
 	end
 end

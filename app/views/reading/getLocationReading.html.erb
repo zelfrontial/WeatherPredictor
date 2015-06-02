@@ -21,7 +21,7 @@
   <tbody>
     <% @single_readings.each do |sr| %>
       <tr>
-        <td><%= sr.created_at.in_time_zone("Melbourne") %></td>
+        <td><%= sr.time.in_time_zone("Melbourne") %></td>
         <td><%= sr.temperature.temperature %></td>
         <td><%= sr.rainfall.rainfall %></td>
         <td><%= sr.wind.windDirection %></td>

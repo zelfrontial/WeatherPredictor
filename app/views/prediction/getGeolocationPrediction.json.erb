@@ -1,0 +1,27 @@
+{
+"latitude":"<%= @geolocation.latitude %>",
+"longitude":"<%= @geolocation.longitude %>",
+"predictions":{
+    <% (0..(@period / 10)).each do |i| %>
+    "<%= i %>":{
+        "time":"<%= (@single_readings.first.time + (i * 10 + @time_now) * 60).in_time_zone("Melbourne") %>",
+        "rain": {
+            "value":"<%= @rainfall_prediction[0][i].rainfall %>"
+            "probability":"<%= @rainfall_prediction[1] %>"
+        },
+        "temp": {
+            "value":"<%= @temperature_prediction[0][i].temperature %>"
+            "probability":"<%= @temperature_prediction[1] %>"
+        },
+        "wind_speed": {
+            "value":"<%= @wind_prediction[0][i].windSpeed %>"
+            "probability":"<%= @temperature_prediction[1] %>"
+        },
+        "wind_direction": {
+            "value":"<%= @wind_prediction[0][i].windDirection %>"
+            "probability":"<%= @temperature_prediction[2] %>"
+        }
+    }<% if i != (0..(@period / 10)).last %>,<% end %>
+    <% end %>
+    }
+}
