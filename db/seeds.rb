@@ -15,7 +15,7 @@ station_list = [
 	["HOPETOUN", "Hopetoun Airport", -35.72, 142.36],
 	["MILDURA", "Mildura", -34.24, 142.09],
 	["SWAN_HILL", "Swan Hill", -35.38, 143.54],
-	["WALPEUP", "Walpeup", -35.12, 142.00],
+	["WALPEUP", "Walpeup RS", -35.12, 142.00],
 	["EDENHOPE", "Edenhope", -37.02, 141.27],
 	["HORSHAM", "Horsham", -36.67, 142.17],
 	["KANAGULK", "Kanagulk", -37.12, 141.80],
